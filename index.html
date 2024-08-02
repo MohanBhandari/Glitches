@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Image Classification</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .jumbotron {
+      background-color: #218838;
+      color: #eff5f1;
+      padding: 10px 0;
+      margin-bottom: 0;
+    }
+    .form-control-file {
+      border-radius: .25rem;
+    }
+    .btn-success {
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+    .btn-success:hover {
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
+    .form-container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: .25rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    .result-img {
+      border: 2px solid #007bff;
+      border-radius: .25rem;
+      padding: 5px;
+    }
+    .text-center-custom {
+      text-align: center;
+    }
+    .file-name {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="jumbotron text-center">
+    <h4>Advancing IoT for Gravitational Glitch Classification</h4>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 form-container">
+      <form class="form-horizontal text-center" action="/submit" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="my_image" class="col-form-label"></label>
+          <input type="file" class="form-control-file" name="my_image" id="my_image">
+          <div id="file-name" class="file-name"></div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success">Predict</button>
+        </div>
+      </form>
+      
+      {% if prediction %}
+        <div class="text-center-custom">
+          <img src="{{img_path}}" class="result-img" height="400px" width="400px">
+          <h2>Model Prediction: <i>{{prediction}}</i></h2>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+</body>
+</html>
