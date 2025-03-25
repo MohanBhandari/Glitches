@@ -53,7 +53,7 @@ def main():
 
 @app.route("/about")
 def about_page():
-	return "Please subscribe  Artificial Intelligence Hub..!!!"
+	return "Error"
 
 @app.route("/submit", methods = ['GET', 'POST'])
 def get_output():
